@@ -8,21 +8,38 @@
 </head>
 <body>
     <header>
-        <nav class="navbar2">
-            <a href="../../index.html">Back</a>
-        </nav>
+        <ul class="navbar">
+            <li><a href="../../index.html">Home</a></li>
+        </ul>
     </header>
     <main id="login">
-        <form action="">
+        <form id="loginForm">
             <h1>Masuk</h1>
-            <label for="usn">Username</label><br>
-            <input type="text" id="usn" name="usn"><br>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="Back">
-            <input type="submit" value="Submit">
+                <label for="username">Username</label><br>
+                <input type="text" id="username" name="username" required><br>
+
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" value="Submit">
     
         </form>
+        <div id="errorMessage">Username atau Password salah!</div>
     </main>
+    <script type="text/javascript">
+        const validUsername = "admin";
+        const validPassword = "root";
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === validUsername && password === validPassword) {
+                window.location.href = "../../Index.html";
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

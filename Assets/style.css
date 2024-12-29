@@ -68,15 +68,23 @@ main .banner{
     font-size:20px;
 }
 #login{
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background-color:#808080;
-    margin:10px;
-    padding:10px;
+    margin:100px auto;
+    padding:50px;
+    width:fit-content;
 }
 #login h1, label, input{
     margin:0;
 }
 #login h1{
     text-align:center;
+}
+#login #errorMessage{
+    color:#ff0000;
+    display:none;
 }
 @media (max-width: 768px) {
     .hamburger {
