@@ -17,10 +17,13 @@ body {
     transition:all 0.3s ease;
 }
 .navbar {
+    position:fixed;
+    top:0;
     display:flex;
-    list-style-type:none;
+    width:100%;
     margin:0;
     padding:0;
+    list-style-type:none;
     background-color:#f4f4f4;
 }
 .navbar li {
@@ -38,6 +41,7 @@ body {
     padding:15px 20px;
 }
 main .banner{
+    margin-top:50px;;
     width:100%;
 }
 #profile .member{
@@ -68,13 +72,16 @@ main .banner{
     font-size:20px;
 }
 #login{
-    display:flex;
+    display:block;
     justify-content:center;
     align-items:center;
     background-color:#808080;
     margin:100px auto;
     padding:50px;
     width:fit-content;
+}#login .authOptions{
+    display:flexbox;
+    margin:auto;
 }
 #login h1, label, input{
     margin:0;
@@ -82,7 +89,14 @@ main .banner{
 #login h1{
     text-align:center;
 }
-#login #errorMessage{
+#login #loginErrorMessage{
+    color:#ff0000;
+    display:none;
+}
+#login #alert{
+    color:#ff0000;
+}
+#login #signupErrorMessage{
     color:#ff0000;
     display:none;
 }

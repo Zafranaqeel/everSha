@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In | Sign Up</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../Image/icon.jpg">
 </head>
 <body>
     <header>
@@ -13,33 +14,33 @@
         </ul>
     </header>
     <main id="login">
-        <form id="loginForm">
+        <form id="loginForm" class="authForm">
             <h1>Masuk</h1>
-                <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" required><br>
+            <label for="loginUsername">Username</label><br>
+            <input type="text" id="loginUsername" name="username" required><br>
 
-                <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" required><br>
-                <input type="submit" value="Submit">
-    
+            <label for="loginPassword">Password</label><br>
+            <input type="password" id="loginPassword" name="password" required><br>
+            <input type="submit" value="Submit">
+            <div id="loginErrorMessage">Username atau Password salah!</div>
         </form>
-        <div id="errorMessage">Username atau Password salah!</div>
+        <form id="signUpForm" class="authForm" style="display: none;">
+            <h1>Buat Akun Baru</h1>
+            <label for="signUpUsername">Username</label><br>
+            <input type="text" id="signUpUsername" name="username" required><br>
+
+            <label for="signUpPassword">Password</label><br>
+            <input type="password" id="signUpPassword" name="password" required><br>
+            <input type="submit" value="Daftar">
+            <div id="alert">Jangan gunakan password E-Mail dsb.</div>
+            <div id="signupErrorMessage">Username sudah terdaftar</div>
+            <div id="signUpMessage">Akun berhasil dibuat!</div>
+        </form>
+        <div id="authOptions">
+            <button id="showLogin">Login</button>
+            <button id="showSignUp">Sign Up</button>
+        </div>
     </main>
-    <script type="text/javascript">
-        const validUsername = "admin";
-        const validPassword = "root";
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if (username === validUsername && password === validPassword) {
-                window.location.href = "../../Index.html";
-            } else {
-                errorMessage.style.display = 'block';
-            }
-        });
-    </script>
+    <script src="auth.js"></script>
 </body>
 </html>
