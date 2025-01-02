@@ -2,12 +2,17 @@ body {
     font-family:Arial,sans-serif;
     margin:0;
     padding:0;
+    background-color:#808080
 }
 .hamburger {
-    display:none;
+    position:fixed;
+    display:flex;
     flex-direction:column;
     cursor:pointer;
     padding:10px;
+    right:0;
+    z-index:1000;
+    background-color:#f4f4f4;
 }
 .hamburger div {
     width:30px;
@@ -16,33 +21,57 @@ body {
     margin:5px 0;
     transition:all 0.3s ease;
 }
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
 .navbar {
+    margin:0;
+    list-style-type:none;
+    display:none;
+    flex-direction:column;
     position:fixed;
     top:0;
-    display:flex;
-    width:100%;
+    right:50px;
+    background-color: #333;
     margin:0;
     padding:0;
-    list-style-type:none;
-    background-color:#f4f4f4;
+}
+.navbar.active {
+    display: flex;
 }
 .navbar li {
     padding:15px 20px;
+    margin:0;
 }
 .navbar a {
+    text-align:center;
     text-decoration:none;
     font-weight:bold;
-    color:#333;
-    padding:15px 20px
+    color:#f4f4f4;
+    padding:15px 20px;
+    margin:0;
 }
 .navbar a:hover {
     color: #ffffff;
     background-color:#808080;
     padding:15px 20px;
 }
-main .banner{
-    margin-top:50px;;
+#home .banner{
+    margin:0;
     width:100%;
+}
+#home iframe{
+    display:inline-flex;
+    justify-content:space-around;
+    margin:10px 9px;
+    width:650px;
+    height:400px;
 }
 #profile .member{
     margin:10px;
@@ -55,7 +84,7 @@ main .banner{
     justify-content:center;
     padding:20px;
     margin:10px;
-    background-color:#808080;
+    background-color:#333;
     border-radius:10px;
 }
 #profile .member .mem1, .mem2, .mem3, .mem4, .mem5, img{
@@ -68,71 +97,38 @@ main .banner{
     height:150px;
     border-radius:50%;
 }
-#profile .member h1{
-    font-size:20px;
-}
-#login{
-    display:block;
-    justify-content:center;
-    align-items:center;
-    background-color:#808080;
-    margin:100px auto;
-    padding:50px;
-    width:fit-content;
-}#login .authOptions{
-    display:flexbox;
-    margin:auto;
-}
-#login h1, label, input{
-    margin:0;
-}
-#login h1{
+#profile .member h1 a{
+    text-decoration:none;
     text-align:center;
+    color:#ffffff;
+    font-size:13px;
 }
-#login #loginErrorMessage{
-    color:#ff0000;
-    display:none;
+footer{
+    margin:0;
+    padding-top:25px;
+    display:flex;
+    justify-content:space-around;
+    margin:auto;
+    background-color:#333;
+    color:#f4f4f4;
 }
-#login #alert{
-    color:#ff0000;
-}
-#login #signupErrorMessage{
-    color:#ff0000;
-    display:none;
+footer h3 a{
+    text-decoration:none;
+    color:#00ffff;
 }
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    #home{
+        margin-top:0;
     }
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        background-color: #f4f4f4;
+    #home .banner{
+        width:100%;
+        height:fit-content;
     }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar li {
-        text-align: center;
-    }
-
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translateY(8px);
-    }
-
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translateY(-8px);
+    #home iframe{
+        display:flex;
+        margin:auto;
+        width:300px;
+        height:155px;
     }
     #profile .member{
         margin:5px;
@@ -164,5 +160,10 @@ main .banner{
     #profile .member p{
         display:none;
     }
-    
+    footer h1{
+        font-size:15px;
+    }
+    footer h3{
+        font-size:10px;
+    }
 }
